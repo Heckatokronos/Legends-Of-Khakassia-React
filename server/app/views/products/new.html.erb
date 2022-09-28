@@ -1,0 +1,11 @@
+  <h1>Upload Photo</h1>
+  <%= form_for @products do |f| %>
+
+    <%= f.text_field :title %><br>
+    <%= f.text_field :description %><br>
+    <%= f.number_field :price %><br>
+    <%= f.file_field :image %><br>
+
+    <%= f.submit 'Upload' %><br>
+  <% end %>
+</div>
