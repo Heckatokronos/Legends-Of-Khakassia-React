@@ -6,6 +6,9 @@ COPY Gemfile /server/Gemfile
 COPY Gemfile.lock /server/Gemfile.lock
 RUN bundle install
 
+# start prepared json product things
+RUN rails db:seed
+
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
