@@ -27,7 +27,7 @@ export const Navigation: FC = () => {
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
-        <AppBar position='sticky' color="transparent">
+        <AppBar position='static' color="transparent">
             <Toolbar>
                 {
                     isMatch ? (

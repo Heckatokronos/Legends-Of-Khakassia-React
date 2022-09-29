@@ -1,12 +1,8 @@
-import React from 'react'
-import useMediaQuery from '@mui/material/useMediaQuery'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { CssBaseline } from '@mui/material'
-import { Route, Routes } from 'react-router-dom'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/ui'
-import { Catalog, Main, Product, History, Company, Cart } from './pages'
-
-// const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
+import { Catalog, Main, Product, History, Cart, Company } from './pages';
+import { CssBaseline, createTheme, useMediaQuery, ThemeProvider } from '@mui/material'
 
 function App() {
 
