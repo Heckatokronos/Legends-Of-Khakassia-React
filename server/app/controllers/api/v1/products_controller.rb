@@ -2,28 +2,38 @@ module Api
   module V1
     class ProductsController < ApplicationController
       def index
-        products = Product.all
-        render json: { products: products }, status: 200
+        @products = Product.all
+        render json: { products: @products }, methods: [:image_url]
+      end
+
+      def new
+        @products = Product.new
       end
 
       def create
-        product = Product.new(products_params)
-        if product.save
-          render json: product, status: 201
+        @products = Product.new(products_params)
+        if @products.save
+          redirect_to @products
         else
-          render json: { message: product.errors.full_messages }, status: 400
+          render :new, status: :unprocessable_entity
         end
       end
 
       def destroy
-        product = Product.find(products_params)
-        product.destroy
+        @products = Product.find(products_params)
+        @products.destroy
+      end
+
+      def update
+        if @products.update(products_params)
+          render json: { products: @products }, status: 200
+        end
       end
 
       private
 
       def products_params
-        params.require(:products).permit(:title, :price, :description)
+        params.require(:product).permit(:title, :price, :description, :image)
       end
     end
   end
