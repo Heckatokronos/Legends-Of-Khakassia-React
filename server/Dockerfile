@@ -18,3 +18,5 @@ EXPOSE 3000
 # Configure the main process to run when running the image
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
+# This file should contain all the record creation needed to seed the database with its default values.
+RUN rails db:seed
