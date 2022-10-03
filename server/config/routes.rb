@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products
+  # root path or /api/v1/products
+  root "api/v1/products#index"
+  get '/new', to: "api/v1/products#new"
 
+  resources :products
 end
