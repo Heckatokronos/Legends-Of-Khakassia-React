@@ -1,5 +1,5 @@
 import { MenuRounded } from "@mui/icons-material";
-import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Paper } from "@mui/material"
+import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import pages from "../navigation/Pages";
