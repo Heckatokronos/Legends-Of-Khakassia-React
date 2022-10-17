@@ -36,7 +36,7 @@ const DrawerComponent = () => {
                 </List>
             </Drawer>
             <IconButton
-                sx={{ marginLeft: 'auto' }}
+                sx={{ margin: '0 auto' }}
                 onClick={() => setOpenDrawer(!openDrawer)}
                 color="secondary"
             >

@@ -4,9 +4,9 @@ import {
 
 export const ImgStyled = styled('img')(({ theme }) => ({
     margin: '0 auto',
-    boxShadow: '35px 20px 0px #99FCBB',
     maxWidth: '100%',
     height: 'auto',
-    marginTop: '1rem',
+    marginTop: '1.5rem',
     marginBottom: '1rem',
+    borderRadius: '1rem'
 }))

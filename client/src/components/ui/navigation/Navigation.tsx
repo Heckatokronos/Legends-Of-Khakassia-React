@@ -37,10 +37,18 @@ export const Navigation: FC = () => {
                                 noWrap
                                 component='div'
                                 color='secondary'
-                                sx={{ margin: 'auto' }}
+                                sx={{ margin: '0 auto' }}
                             >
                                 Легенды Хакассии
                             </Typography>
+                            <IconButton
+                                size='large'
+                                edge='end'
+                                color='secondary'
+                                href='/cart'
+                            >
+                                <ShoppingCartRounded />
+                            </IconButton>
                             <DrawerComponent />
                         </>
                     ) : (

@@ -1,5 +1,4 @@
 export * from './navigation/Navigation'
-export * from './reuse-components/Left'
-export * from './reuse-components/Right'
+export * from './reuse-components/Reuse'
 export * from './card/Card'
 
