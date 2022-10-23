@@ -1,3 +1,7 @@
+import time from './images/Time.png'
+import clever from './images/Clever.png'
+import health from './images/Health.png'
+
 export const firstMText = [
     {
         title: '',
@@ -10,17 +14,24 @@ export const firstMText = [
 export const secondMText = [
     {
         title: 'Почему мы?',
-        description1: <>
+        description: <>
             Быстрое оформление заказа
         </>,
-        description2: <>
+        Image: `${time}`,
+    },
+    {
+        description: <>
             Экологически чистый продукт
         </>,
-        description3: <>
+        Image: `${clever}`,
+    },
+    {
+        description: <>
             Косметика положительно влияет
             на ваше тело
-        </>
-    },
+        </>,
+        Image: `${health}`,
+    }
 ]
 
 export const thirdMText = [

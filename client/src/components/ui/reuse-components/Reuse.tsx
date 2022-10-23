@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { ImgStyled, TypographyStyled } from "../../styled-components";
 
 interface ComponentProps {
@@ -63,6 +63,22 @@ export function SecondComponent({ title, children, image }: ComponentProps) {
                         </Grid>
                     </Grid>
                 </Box>
+            </Container>
+        </>
+    )
+}
+
+export function ThirdComponent({ title, children, image }: ComponentProps) {
+
+    return (
+        <>
+            <Container maxWidth="lg">
+                <ImageList variant="masonry" cols={3}>
+                    <ImageListItem>
+                        <ImgStyled src={`${image}`}/>
+                        <ImageListItemBar position="below" title={children}/>
+                    </ImageListItem>
+                </ImageList>
             </Container>
         </>
     )
