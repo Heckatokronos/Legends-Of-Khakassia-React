@@ -27,90 +27,99 @@ export const Navigation: FC = () => {
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
-        <AppBar position='static' color="transparent">
-            <Toolbar>
-                {
-                    isMatch ? (
-                        <>
-                            <Typography
-                                variant='h6'
-                                noWrap
-                                component='div'
-                                color='secondary'
-                                sx={{ margin: '0 auto' }}
-                            >
-                                Легенды Хакассии
-                            </Typography>
-                            <IconButton
-                                size='large'
-                                edge='end'
-                                color='secondary'
-                                href='/cart'
-                            >
-                                <ShoppingCartRounded />
-                            </IconButton>
-                            <DrawerComponent />
-                        </>
-                    ) : (
-                        <>
-                            <Button
-                                sx={{
-                                    margin: 'auto',
-                                    textTransform: 'none',
-                                    '&:hover': {
-                                        boxShadow: 'none',
-                                        backgroundColor: '#11ffee00',
-                                    },
-                                }}
-                                href='/'
-                            >
+        <>
+            {
+                isMatch ? (
+                    <>
+                        <AppBar position='fixed' color="primary" sx={{
+                            top: 'auto',
+                            bottom: 0
+                        }}>
+                            <Toolbar>
                                 <Typography
                                     variant='h6'
                                     noWrap
                                     component='div'
                                     color='secondary'
-                                    sx={{ margin: 'auto' }}
+                                    sx={{ margin: '0 auto' }}
                                 >
                                     Легенды Хакассии
                                 </Typography>
-                            </Button>
-                            <Box sx={{ margin: 'auto' }}>
-                                <Tabs onChange={(e, value) => setValue(value)} value={value} key={0} textColor='secondary' indicatorColor="secondary" >
-                                    {
-                                        pages.map(({ label, to }) =>
-                                            // @ts-expect-error
-                                            <Tab
-                                                sx={{
-                                                    fontStyle: "normal",
-                                                    fontWeight: 400,
-                                                    fontSize: "15px",
-                                                    marginRight: "1.5rem",
-                                                    borderRadius: '0px',
-                                                    textTransform: 'none'
-                                                }}
-                                                to={to}
-                                                label={label}
-                                                LinkComponent={Link}
-                                            />
-                                        )
-                                    }
-                                </Tabs>
-                            </Box>
-                            <IconButton
-                                size='large'
-                                edge='end'
-                                color='secondary'
-                                sx={{
-                                    margin: 'auto'
-                                }}
-                                href='/cart'
-                            >
-                                <ShoppingCartRounded />
-                            </IconButton>
-                        </>
-                    )
-                }
-            </Toolbar>
-        </AppBar>
+                                <IconButton
+                                    size='large'
+                                    edge='end'
+                                    color='secondary'
+                                    href='/cart'
+                                >
+                                    <ShoppingCartRounded />
+                                </IconButton>
+                                <DrawerComponent />
+                            </Toolbar>
+                        </AppBar>
+                    </>
+                ) : (
+                    <>
+                        <AppBar position='static' color="transparent">
+                            <Toolbar>
+                                <Button
+                                    sx={{
+                                        margin: 'auto',
+                                        textTransform: 'none',
+                                        '&:hover': {
+                                            boxShadow: 'none',
+                                            backgroundColor: '#11ffee00',
+                                        },
+                                    }}
+                                    href='/'
+                                >
+                                    <Typography
+                                        variant='h6'
+                                        noWrap
+                                        component='div'
+                                        color='secondary'
+                                        sx={{ margin: 'auto' }}
+                                    >
+                                        Легенды Хакассии
+                                    </Typography>
+                                </Button>
+                                <Box sx={{ margin: 'auto' }}>
+                                    <Tabs onChange={(e, value) => setValue(value)} value={value} key={0} textColor='secondary' indicatorColor="secondary" >
+                                        {
+                                            pages.map(({ label, to }) =>
+                                                // @ts-expect-error
+                                                <Tab
+                                                    sx={{
+                                                        fontStyle: "normal",
+                                                        fontWeight: 400,
+                                                        fontSize: "15px",
+                                                        marginRight: "1.5rem",
+                                                        borderRadius: '0px',
+                                                        textTransform: 'none'
+                                                    }}
+                                                    to={to}
+                                                    label={label}
+                                                    LinkComponent={Link}
+                                                />
+                                            )
+                                        }
+                                    </Tabs>
+                                </Box>
+                                <IconButton
+                                    size='large'
+                                    edge='end'
+                                    color='secondary'
+                                    sx={{
+                                        margin: 'auto'
+                                    }}
+                                    href='/cart'
+                                >
+                                    <ShoppingCartRounded />
+                                </IconButton>
+                            </Toolbar>
+                        </AppBar>
+                    </>
+                )
+            }
+        </>
     )
 }

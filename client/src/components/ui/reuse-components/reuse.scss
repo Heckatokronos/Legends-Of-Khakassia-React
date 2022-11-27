@@ -1,0 +1,21 @@
+divMain {
+    display: block;
+    position: relative;
+    justify-self: center;
+}
+
+divSecond {
+    display: flex;
+    justify-content: space-between;
+}
+
+divImage {
+    display: flex;
+    position: relative;
+}
+
+imgMain {
+    display: block;
+    position: relative;
+    text-align: left;
+}

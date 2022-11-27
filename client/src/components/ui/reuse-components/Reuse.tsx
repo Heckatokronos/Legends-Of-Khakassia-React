@@ -1,11 +1,22 @@
-import { Box, Container, Grid, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import { Box, Container, Grid, Stack, styled } from "@mui/material";
 import { ImgStyled, TypographyStyled } from "../../styled-components";
+import { Item } from "../../styled-components/Item/Item";
+import './reuse.scss'
 
 interface ComponentProps {
     title?: any,
     children: React.ReactNode,
     image: string,
 }
+
+const FlexBox = styled(Box)({
+    display: 'flex',
+    flexDirection: 'row',
+    textAlign: 'center',
+    position: 'relative',
+    mr: 'auto',
+    ml: 'auto',
+})
 
 export function FirstComponent({ title, children, image }: ComponentProps) {
 
@@ -72,14 +83,21 @@ export function ThirdComponent({ title, children, image }: ComponentProps) {
 
     return (
         <>
-            <Container maxWidth="lg">
-                <ImageList variant="masonry" cols={3}>
-                    <ImageListItem>
-                        <ImgStyled src={`${image}`}/>
-                        <ImageListItemBar position="below" title={children}/>
-                    </ImageListItem>
-                </ImageList>
-            </Container>
+            <Box>
+                <TypographyStyled variant="h6" sx={{ p: '2%', color: '#ce93d8', textAlign: 'center', }}>
+                    {title}
+                </TypographyStyled>
+            </Box>
+            <FlexBox>
+                <Stack direction="row" sx={{ mr: 'auto', ml: 'auto' }}>
+                    <Item>
+                        <ImgStyled src={image} />
+                        <TypographyStyled sx={{ width: '75%', ml: 'auto', mr: 'auto' }}>
+                            {children}
+                        </TypographyStyled>
+                    </Item>
+                </Stack>
+            </FlexBox>
         </>
     )
 }

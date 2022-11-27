@@ -8,5 +8,5 @@ export const ImgStyled = styled('img')(({ theme }) => ({
     height: 'auto',
     marginTop: '1.5rem',
     marginBottom: '1rem',
-    borderRadius: '1rem'
+    borderRadius: '1rem',
 }))
