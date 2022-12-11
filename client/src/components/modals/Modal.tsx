@@ -5,9 +5,12 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { TextField } from '@mui/material';
 
 interface ModalProps {
     title: string,
+    label1: string,
+    label2: string,
     children: React.ReactNode,
 }
 
@@ -17,28 +20,25 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
+    height: 'auto',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
 };
 
-export default function Modalka({ children, title }: ModalProps) {
+export default function Modalka({ children, title, label1, label2 }: ModalProps) {
     const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
         <div>
+            <Button onClick={handleOpen} variant="outlined" color="secondary">{title}</Button>
             <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
                 open={open}
                 onClose={handleClose}
                 closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
             >
                 <Fade in={open}>
                     <Box sx={style}>
@@ -48,6 +48,18 @@ export default function Modalka({ children, title }: ModalProps) {
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                             {children}
                         </Typography>
+                        <TextField
+                            sx={{ m: '0 auto', mt: '1rem', width: '17vw', maxWidth: 'auto' }}
+                            label={label1}
+                            variant='outlined'
+                            required
+                        />
+                        <TextField
+                            sx={{ m: '0 auto', mt: '1rem', width: '17vw', maxWidth: 'auto' }}
+                            label={label2}
+                            variant='outlined'
+                            required
+                        />
                     </Box>
                 </Fade>
             </Modal>

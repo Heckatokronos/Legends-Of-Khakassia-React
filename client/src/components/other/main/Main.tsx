@@ -1,6 +1,8 @@
 import time from './images/Time.png'
 import clever from './images/Clever.png'
 import health from './images/Health.png'
+import third from './images/Third.png'
+import { Typography } from '@mui/material'
 
 export const firstMText = [
     {
@@ -38,8 +40,13 @@ export const thirdMText = [
     {
         title: 'На что стоит обратить внимание',
         description: <>
-            Многие не могут выбрать косметику, так как не знают методику подбора, она довольно проста.
-            Нужно знать свой тип кожи, текущее её состояние, состав косметических средств и как ваша кожа реагирует на косметику.
-        </>
+            Многие не могут выбрать косметику, так как не знают методику подбора. Она довольно проста:
+            <Typography sx={{ p: '1rem', mt: '-1rem', mb: '-5rem' }}>
+                <p>1. Нужно знать свой тип кожи и текущее её состояние</p>
+                <p>2. Состав косметических средств</p>
+                <p>3. Как ваша кожа реагирует на косметику</p>
+            </Typography>
+        </>,
+        Image: `${third}`
     },
 ]

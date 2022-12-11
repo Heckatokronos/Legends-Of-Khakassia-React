@@ -1,5 +1,7 @@
 import { FirstComponent, SecondComponent } from "../../components/ui";
 import { productFirst, productSecond } from "../../components/other/product/Product";
+import Modal from "../../components/modals/Modal";
+import { Button } from "@mui/material";
 
 export function Product() {
 
@@ -17,5 +19,4 @@ export function Product() {
             }
         </>
     )
-
 }

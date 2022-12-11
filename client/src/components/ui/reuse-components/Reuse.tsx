@@ -1,7 +1,6 @@
-import { Box, Container, Grid, Stack, styled } from "@mui/material";
-import { ImgStyled, TypographyStyled } from "../../styled-components";
+import { Box, Grid, Stack, styled, Typography } from "@mui/material";
+import { ImgStyled } from "../../styled-components";
 import { Item } from "../../styled-components/Item/Item";
-import './reuse.scss'
 
 interface ComponentProps {
     title?: any,
@@ -23,26 +22,17 @@ export function FirstComponent({ title, children, image }: ComponentProps) {
 
     return (
         <>
-            <Container
-                maxWidth='lg'
-                sx={{
-                    display: 'flex',
-                }}
-            >
-                <Box sx={{ flexGrow: 1, m: '0 auto' }}>
-                    <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
-                        <TypographyStyled variant="h6" sx={{ color: '#ce93d8', mt: '1rem', fontSize: '2rem auto', p: '2rem', mb: '-1.5rem' }}>
-                            {title}
-                        </TypographyStyled>
-                        <ImgStyled src={image} />
-                        <Box>
-                            <TypographyStyled>
-                                {children}
-                            </TypographyStyled>
-                        </Box>
-                    </Grid>
-                </Box>
-            </Container>
+            <Box sx={{ flexGrow: 1, m: '0 auto' }}>
+                <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
+                    <Typography variant="h4" sx={{ color: '#ce93d8', mt: '1rem', fontSize: '2rem auto', p: '2rem', mb: '-1.5rem' }}>
+                        {title}
+                    </Typography>
+                    <ImgStyled src={image} />
+                    <Typography sx={{ m: '0 auto', ml: 'auto', mr: 'auto' }}>
+                        {children}
+                    </Typography>
+                </Grid>
+            </Box>
         </>
     )
 }
@@ -51,50 +41,52 @@ export function SecondComponent({ title, children, image }: ComponentProps) {
 
     return (
         <>
-            <Container
-                maxWidth='lg'
-                sx={{
-                    display: 'flex',
-                }}
-            >
-                <Box sx={{ flexGrow: 1, m: '0 auto' }}>
-                    <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
-                        <Grid xs={8}>
-                            <Box sx={{ backgroundColor: 'blur(10px)', borderRadius: '1rem' }}>
-                                <TypographyStyled sx={{ color: '#ce93d8', p: '2rem', margin: '0 auto', mt: '4.5rem', fontSize: '24px' }}>
-                                    {title}
-                                </TypographyStyled>
-                                <TypographyStyled sx={{ mt: '-2rem', p: '2rem' }}>
-                                    {children}
-                                </TypographyStyled>
-                            </Box>
+            <Box sx={{ flexGrow: 1, m: '0 auto' }}>
+                <Item sx={{
+                    width: 'auto',
+                    maxWidth: 'auto',
+                    mt: '1rem',
+                    mb: '1rem',
+                }}>
+                    <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }} sx={{ ml: 'auto', mr: 'auto' }} >
+                        <Grid item xs={8}>
+                            <Typography  sx={{ m: '0 auto', p: '2rem', fontSize: '24px', color: '#ce93d8' }}>
+                                {title}
+                            </Typography>
+                            <Typography sx={{ m: '0 auto', mt: '-3rem', p: '2rem' }}>
+                                {children}
+                            </Typography>
                         </Grid>
-                        <Grid xs={4} sx={{ m: '0 auto', mt: '2rem' }}>
-                            <ImgStyled src={image} />
+                        <Grid item xs={4} sx={{ display: 'flex', m: '0 auto' }}>
+                            <ImgStyled src={image} sx={{
+                                ":hover": {
+                                    transform: 'scale(1.2)'
+                                },
+                                transition: 'transform .4s',
+                            }} />
                         </Grid>
                     </Grid>
-                </Box>
-            </Container>
+                </Item>
+            </Box>
         </>
     )
 }
 
 export function ThirdComponent({ title, children, image }: ComponentProps) {
-
     return (
         <>
             <Box>
-                <TypographyStyled variant="h6" sx={{ p: '2%', color: '#ce93d8', textAlign: 'center', }}>
+                <Typography variant="h6" sx={{ p: '2%', color: '#ce93d8', textAlign: 'center', }}>
                     {title}
-                </TypographyStyled>
+                </Typography>
             </Box>
             <FlexBox>
                 <Stack direction="row" sx={{ mr: 'auto', ml: 'auto' }}>
                     <Item>
                         <ImgStyled src={image} />
-                        <TypographyStyled sx={{ width: '75%', ml: 'auto', mr: 'auto' }}>
+                        <Typography sx={{ width: '75%', ml: 'auto', mr: 'auto' }}>
                             {children}
-                        </TypographyStyled>
+                        </Typography>
                     </Item>
                 </Stack>
             </FlexBox>

@@ -1,5 +1,4 @@
-import { Card, CardActions, CardContent, CardMedia, Container, IconButton, } from "@mui/material"
-import { TypographyStyled } from "../../styled-components"
+import { Card, CardActions, CardContent, CardMedia, Container, IconButton, Typography, } from "@mui/material"
 import { CardProps } from "./CardProps"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 
@@ -19,12 +18,12 @@ export function Cards(props: ProductProps) {
                         image={props.product.image_url}
                     />
                     <CardContent>
-                        <TypographyStyled gutterBottom variant="h5" color="secondary">
+                        <Typography gutterBottom variant="h5" color="secondary">
                             {props.product.title}
-                        </TypographyStyled>
-                        <TypographyStyled variant="body2" color="text.secondary">
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
                             {props.product.description}
-                        </TypographyStyled>
+                        </Typography>
                     </CardContent>
                     <CardActions>
                         <IconButton size="small" color='secondary' sx={{ borderRadius: '36px', margin: 'auto' }}>

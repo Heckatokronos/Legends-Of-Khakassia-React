@@ -20,7 +20,7 @@ import DrawerComponent from '../drawer/Drawer';
 
 export const Navigation: FC = () => {
 
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState(0);
 
     const theme = useTheme();
 
@@ -28,13 +28,17 @@ export const Navigation: FC = () => {
 
     return (
         <>
-            {
-                isMatch ? (
-                    <>
-                        <AppBar position='fixed' color="primary" sx={{
-                            top: 'auto',
-                            bottom: 0
-                        }}>
+            <AppBar
+                position='sticky'
+                color="transparent"
+                sx={{
+                    backdropFilter: 'blur(8px)'
+                }}
+            >
+                {
+                    isMatch ? (
+                        <>
+
                             <Toolbar>
                                 <Typography
                                     variant='h6'
@@ -55,11 +59,9 @@ export const Navigation: FC = () => {
                                 </IconButton>
                                 <DrawerComponent />
                             </Toolbar>
-                        </AppBar>
-                    </>
-                ) : (
-                    <>
-                        <AppBar position='static' color="transparent">
+                        </>
+                    ) : (
+                        <>
                             <Toolbar>
                                 <Button
                                     sx={{
@@ -83,7 +85,7 @@ export const Navigation: FC = () => {
                                     </Typography>
                                 </Button>
                                 <Box sx={{ margin: 'auto' }}>
-                                    <Tabs onChange={(e, value) => setValue(value)} value={value} key={0} textColor='secondary' indicatorColor="secondary" >
+                                    <Tabs onChange={(e, value) => setValue(value)} value={value} textColor='secondary' indicatorColor="secondary" >
                                         {
                                             pages.map(({ label, to }) =>
                                                 // @ts-expect-error
@@ -94,7 +96,7 @@ export const Navigation: FC = () => {
                                                         fontSize: "15px",
                                                         marginRight: "1.5rem",
                                                         borderRadius: '0px',
-                                                        textTransform: 'none'
+                                                        textTransform: 'none',
                                                     }}
                                                     to={to}
                                                     label={label}
@@ -116,10 +118,10 @@ export const Navigation: FC = () => {
                                     <ShoppingCartRounded />
                                 </IconButton>
                             </Toolbar>
-                        </AppBar>
-                    </>
-                )
-            }
+                        </>
+                    )
+                }
+            </AppBar >
         </>
     )
 }
